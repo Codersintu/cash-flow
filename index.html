@@ -135,16 +135,137 @@
 
         </div>
     </div>
+    </section>
+
 
     <!--form for adding salary and expanses-->
 
-    <div class="">
-        
+<section class="max-w-7xl mx-auto mt-10 px-5 py-3 bg-[#F4EEDC] border border-[#2E3428] rounded-2xl">
+
+    <!-----salary---->
+
+    <div>
+
+        <div class="flex items-center gap-3 mb-4">
+
+            <span class="text-lg font-bold text-[#B8891A]">01</span>
+
+            <h2
+                class="text-xl font-semibold text-[#1E2D24]"
+                style="font-family:'Cormorant Garamond', serif;"
+            >
+                Set Salary
+            </h2>
+
+        </div>
+
+        <form
+            id="salaryForm"
+            class="flex items-end gap-6"
+        >
+
+            <div class="flex-1">
+
+                <label
+                    for="salary"
+                    class="block mb-1 text-sm tracking-[3px] uppercase text-[#5E625B]"
+                >
+                    Total Salary
+                </label>
+
+                <input
+                    id="salary"
+                    type="number"
+                    placeholder="e.g. 50000"
+                    class="w-full rounded-md border border-[#30352C] bg-transparent px-4 py-1 text-lg outline-none focus:ring-2 focus:ring-[#1E5A46]"
+                >
+
+            </div>
+
+            <button
+                type="submit"
+                class="px-10 py-2 rounded-md bg-[#1F2C20] text-white font-medium hover:bg-[#2E4231] transition"
+            >
+                Save Salary
+            </button>
+
+        </form>
+
     </div>
 
 
-</section>
+    <div class="my-5 border-t border-dashed border-[#A8A08E]"></div>
 
+    <!------- Expenses------>
+
+    <div>
+
+        <div class="flex items-center gap-3 mb-4">
+
+            <span class="text-lg font-bold text-[#B8891A]">02</span>
+
+            <h2
+                class="text-xl font-semibold text-[#1E2D24]"
+                style="font-family:'Cormorant Garamond', serif;"
+            >
+                Add Expense
+            </h2>
+
+        </div>
+
+        <form
+            id="expenseForm"
+            class="grid grid-cols-1 md:grid-cols-3 gap-6 items-end"
+        >
+
+            <div>
+
+                <label
+                    for="expenseName"
+                    class="block mb-1 text-sm tracking-[3px] uppercase text-[#5E625B]"
+                >
+                    Expense Name
+                </label>
+
+                <input
+                    id="expenseName"
+                    type="text"
+                    placeholder="e.g. Grocery"
+                    class="w-full rounded-md border border-[#30352C] bg-transparent px-4 py-1 text-lg outline-none focus:ring-2 focus:ring-[#1E5A46]"
+                >
+
+            </div>
+
+            <div>
+
+                <label
+                    for="expenseAmount"
+                    class="block mb-1 text-sm tracking-[3px] uppercase text-[#5E625B]"
+                >
+                    Expense Amount
+                </label>
+
+                <input
+                    id="expenseAmount"
+                    type="number"
+                    placeholder="e.g. 1200"
+                    class="w-full rounded-md border border-[#30352C] bg-transparent px-4 py-1 text-lg outline-none focus:ring-2 focus:ring-[#1E5A46]"
+                >
+
+            </div>
+
+            <button
+                type="submit"
+                class="w-full py-2 rounded-md bg-[#1F2C20] text-white font-medium hover:bg-[#2E4231] transition"
+            >
+                Add Expense
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
 
     
 </main>
