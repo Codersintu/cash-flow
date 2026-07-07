@@ -20,6 +20,9 @@
 
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- JsPdf -->
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
@@ -259,7 +262,15 @@
     </div>
     </section>
 
-    <div id="expenseList" class="max-w-7xl  mx-auto mt-5 space-y-2 bg-[#F4EEDC]"></div>
+    <div class="max-w-7xl mx-auto mt-5 bg-[#F4EEDC] p-3">
+    <div id="expenseList" class=""></div>
+    <button
+    id="downloadPdf"
+    class="px-5 bg-green-700 text-white rounded-lg hover:bg-green-800 transition"
+>
+    Download Report
+   </button>
+</div>
 
     <div class="max-w-xl mx-auto mt-5">
 

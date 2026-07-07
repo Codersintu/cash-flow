@@ -8,6 +8,10 @@ const expenseAmount=document.getElementById("expenseAmount")
 const totalExpenses=document.getElementById("totalExpanses")
 
 const totalRemaining=document.getElementById("remainBalance");
+
+const downloadBtn = document.getElementById("downloadPdf");
+
+downloadBtn.addEventListener("click", downloadPDF);
 //  salaryform 
 salaryForm.addEventListener("submit",function(event){
     event.preventDefault();
@@ -166,8 +170,29 @@ function deleteExpense(index){
         JSON.stringify(expenses)
     );
 
-    renderExpenses();
     calculateTotal();
+
+    const salary =
+        Number(localStorage.getItem("salary")) || 0;
+
+    // Calculate total expense
+    const totalExpense =
+        expenses.reduce((sum, expense) => sum + expense.amount, 0);
+
+    // Calculate remaining balance
+    const remainingBalance = salary - totalExpense;
+
+    totalRemaining.textContent =
+        `₹${remainingBalance.toLocaleString("en-IN")}`;
+
+    localStorage.setItem(
+        "remainingBalance",
+        remainingBalance
+    );
+
+        renderExpenses();
+        updateChart();
+
 }
 
 
@@ -221,3 +246,51 @@ function updateChart(){
 }
 
 updateChart();
+
+
+
+function downloadPDF() {
+
+    const { jsPDF } = window.jspdf;
+
+    const doc = new jsPDF();
+
+    const salary =
+        Number(localStorage.getItem("salary")) || 0;
+
+    const totalExpense =
+        Number(localStorage.getItem("totalExpenses")) || 0;
+
+    const remaining =
+        Number(localStorage.getItem("remainingBalance")) || 0;
+
+    doc.setFontSize(22);
+    doc.text("Cash Flow Report", 20, 20);
+
+    doc.setFontSize(14);
+
+    doc.text(`Total Salary : ₹${salary}`, 20, 40);
+
+    doc.text(`Total Expenses : ₹${totalExpense}`, 20, 50);
+
+    doc.text(`Remaining Balance : ₹${remaining}`, 20, 60);
+
+    doc.text("Expenses", 20, 80);
+
+    let y = 95;
+
+    expenses.forEach((expense) => {
+
+        doc.text(
+            `${expense.name} : ₹${expense.amount}`,
+            20,
+            y
+        );
+
+        y += 10;
+
+    });
+
+    doc.save("Cash-Flow-Report.pdf");
+
+}
