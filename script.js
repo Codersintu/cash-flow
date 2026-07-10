@@ -2,7 +2,7 @@ const salaryForm = document.getElementById("salaryForm");
 const salaryInput = document.getElementById("salary");
 const totalSalary = document.getElementById("totalSalary");
 
-const expansesForm=document.getElementById("expenseForm");
+const expensesForm=document.getElementById("expenseForm");
 const expenseName=document.getElementById("expenseName")
 const expenseAmount=document.getElementById("expenseAmount")
 const totalExpenses=document.getElementById("totalExpanses")
@@ -47,7 +47,7 @@ if (savedSalary) {
 //  expensesform
 let expenses =
 JSON.parse(localStorage.getItem("expenses")) || [];
-expansesForm.addEventListener("submit",function(event){
+expensesForm.addEventListener("submit",function(event){
     event.preventDefault();
 
     const name = expenseName.value.trim();
